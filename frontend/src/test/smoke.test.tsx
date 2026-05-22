@@ -7,7 +7,7 @@ import HomePage from "@/pages/HomePage";
 const qc = new QueryClient();
 
 describe("HomePage", () => {
-  it("renders blank landing page", () => {
+  it("renders landing page header", () => {
     render(
       <QueryClientProvider client={qc}>
         <MemoryRouter>
@@ -15,6 +15,6 @@ describe("HomePage", () => {
         </MemoryRouter>
       </QueryClientProvider>,
     );
-    expect(screen.getByRole("main")).toBeDefined();
+    expect(screen.getAllByText("CTEK").length).toBeGreaterThan(0);
   });
 });
