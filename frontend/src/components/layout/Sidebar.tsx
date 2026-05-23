@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -13,6 +13,11 @@ interface NavGroup {
   color: string;
   items: NavItem[];
   defaultOpen?: boolean;
+}
+
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
 }
 
 const navGroups: NavGroup[] = [
@@ -44,7 +49,7 @@ const navGroups: NavGroup[] = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
   const location = useLocation();
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
     SALE: true,
@@ -61,15 +66,25 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="fixed left-0 top-0 h-screen w-44 flex flex-col z-50 overflow-y-auto"
+      className={cn(
+        "fixed left-0 top-0 z-50 flex h-screen w-44 flex-col overflow-y-auto transition-transform duration-300 ease-in-out md:translate-x-0",
+        mobileOpen ? "translate-x-0" : "-translate-x-full"
+      )}
       style={{ backgroundColor: "var(--niaga-sidebar)" }}
     >
       {/* Logo */}
-      <div className="flex items-center gap-2 px-4 py-5 border-b border-white/10">
-        
-        <span className="text-white font-bold text-sm tracking-wide leading-tight">
+      <div className="flex items-center justify-between gap-2 border-b border-white/10 px-4 py-5">
+        <span className="text-sm font-bold leading-tight tracking-wide text-white">
           OPTION<span style={{ color: "#ffa500" }}>GADGET</span>
         </span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close menu"
+          className="rounded p-1 text-white/70 hover:text-white md:hidden"
+        >
+          <X className="h-4 w-4" />
+        </button>
       </div>
 
       {/* Nav groups */}
@@ -85,16 +100,16 @@ export default function Sidebar() {
               )}
             >
               <span
-                className="w-3 h-3 rounded-sm flex-shrink-0"
+                className="h-3 w-3 flex-shrink-0 rounded-sm"
                 style={{ backgroundColor: group.color }}
               />
               <span className="flex-1 text-xs font-bold tracking-wider">
                 {group.label}
               </span>
               {openGroups[group.label] ? (
-                <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+                <ChevronDown className="h-3.5 w-3.5 opacity-60" />
               ) : (
-                <ChevronRight className="w-3.5 h-3.5 opacity-60" />
+                <ChevronRight className="h-3.5 w-3.5 opacity-60" />
               )}
             </button>
 
@@ -105,12 +120,13 @@ export default function Sidebar() {
                   <NavLink
                     key={item.path}
                     to={item.path}
+                    onClick={onClose}
                     className={({ isActive }) =>
                       cn(
-                        "block mx-2 px-3 py-1.5 rounded text-xs transition-colors",
+                        "block mx-2 rounded px-3 py-1.5 text-xs transition-colors",
                         isActive || location.pathname.startsWith(item.path + "/")
-                          ? "text-white font-semibold"
-                          : "text-white/60 hover:text-white hover:bg-white/5"
+                          ? "font-semibold text-white"
+                          : "text-white/60 hover:bg-white/5 hover:text-white"
                       )
                     }
                     style={({ isActive }) =>
@@ -129,11 +145,11 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-white/10">
-        <p className="text-white/30 text-[10px] leading-tight">
+      <div className="border-t border-white/10 px-4 py-3">
+        <p className="text-[10px] leading-tight text-white/30">
           Copyright © 2016 - 2026
         </p>
-        <p className="text-cyan-400/60 text-[10px] leading-tight mt-0.5">
+        <p className="mt-0.5 text-[10px] leading-tight text-cyan-400/60">
           Niagawan Plus Sdn. Bhd.
         </p>
       </div>

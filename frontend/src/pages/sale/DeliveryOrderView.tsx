@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Printer, Copy, MessageCircle } from "lucide-react";
 import DocumentLayout from "@/components/layout/DocumentLayout";
 import ActionSidebar from "@/components/shared/ActionSidebar";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import StatusBadge from "@/components/shared/StatusBadge";
 import { mockDeliveryOrders } from "@/data/mockDeliveryOrders";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -34,7 +35,7 @@ export default function DeliveryOrderView() {
 
   return (
     <div className="min-h-full bg-gray-50">
-      <div className="px-6 pt-6 pb-2">
+      <div className="px-3 pt-4 pb-2 md:px-6 md:pt-6">
         <h1 className="text-lg font-bold text-gray-800 tracking-wide uppercase mb-1">
           Delivery Order
         </h1>
@@ -42,7 +43,7 @@ export default function DeliveryOrderView() {
 
       <DocumentLayout
         document={
-          <div className="max-w-2xl">
+          <div className="w-full max-w-2xl">
             {/* DO Header */}
             <div className="flex justify-between items-start mb-6">
               <div />
@@ -57,8 +58,8 @@ export default function DeliveryOrderView() {
             </div>
 
             {/* Bill To + Ship To + Details */}
-            <div className="flex justify-between gap-8 mb-6">
-              <div className="flex-1">
+            <div className="flex flex-col gap-4 mb-6 md:flex-row md:justify-between md:gap-8">
+              <div className="flex-1 min-w-0">
                 <div className="mb-3">
                   <p className="text-xs font-semibold text-gray-500 mb-1">
                     Bill To:
@@ -76,7 +77,7 @@ export default function DeliveryOrderView() {
                   </div>
                 )}
               </div>
-              <div className="text-right text-xs">
+              <div className="text-left text-xs md:text-right">
                 <p className="font-semibold text-gray-500 mb-1">Details:</p>
                 <div className="grid grid-cols-2 gap-x-4 text-left space-y-0.5">
                   <span className="text-gray-500">DO#:</span>
@@ -94,7 +95,8 @@ export default function DeliveryOrderView() {
             </div>
 
             {/* Items Table */}
-            <table className="w-full text-xs mb-4">
+            <TableScrollArea className="mb-4">
+              <table className="min-w-max w-full text-xs">
               <thead>
                 <tr className="bg-gray-50 border-y border-gray-200">
                   <th className="px-3 py-2 text-left font-semibold text-gray-600 w-8">
@@ -135,9 +137,10 @@ export default function DeliveryOrderView() {
                 </tr>
               </tbody>
             </table>
+            </TableScrollArea>
 
             {/* Signatures */}
-            <div className="flex justify-between mt-8 pt-4 border-t border-gray-200">
+            <div className="flex flex-col gap-6 mt-8 border-t border-gray-200 pt-4 sm:flex-row sm:justify-between">
               <div className="text-xs text-gray-500">
                 <p>Issued by:</p>
                 <div className="mt-6 border-t border-gray-300 w-32 pt-1 text-center text-gray-400">

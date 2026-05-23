@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Plus, Pencil, Printer, MessageCircle } from "lucide-react";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -198,7 +199,8 @@ export default function InvoiceForm() {
             Add title
           </button>
 
-          <table className="w-full text-xs mb-4">
+          <TableScrollArea className="mb-4">
+            <table className="min-w-max w-full text-xs">
             <thead>
               <tr className="bg-gray-50 border-y border-gray-200">
                 <th className="px-3 py-2 text-left font-semibold text-gray-600">
@@ -257,6 +259,7 @@ export default function InvoiceForm() {
               ))}
             </tbody>
           </table>
+          </TableScrollArea>
 
           {/* Summary */}
           <div className="flex gap-8">

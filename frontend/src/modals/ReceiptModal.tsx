@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import { Invoice } from "@/data/mockInvoices";
 import { mockReceipts } from "@/data/mockReceipts";
 
@@ -13,9 +14,9 @@ export default function ReceiptModal({ invoice, onClose }: ReceiptModalProps) {
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative bg-white rounded-lg shadow-xl w-[640px]">
+      <div className="relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-lg bg-white shadow-xl sm:max-w-[640px] sm:rounded-lg">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
           <h2 className="text-sm font-semibold text-gray-800">Receipt</h2>
@@ -27,13 +28,14 @@ export default function ReceiptModal({ invoice, onClose }: ReceiptModalProps) {
           </button>
         </div>
 
-        <div className="px-5 py-4">
+        <div className="overflow-y-auto px-5 py-4">
           {receipts.length === 0 ? (
             <p className="text-xs text-gray-400 text-center py-8">
               No receipts found for this invoice.
             </p>
           ) : (
-            <table className="w-full text-xs">
+            <TableScrollArea>
+              <table className="min-w-max w-full text-xs">
               <thead>
                 <tr className="bg-gray-50 border-y border-gray-200">
                   <th className="px-3 py-2 text-left font-semibold text-cyan-600">
@@ -75,6 +77,7 @@ export default function ReceiptModal({ invoice, onClose }: ReceiptModalProps) {
                 ))}
               </tbody>
             </table>
+            </TableScrollArea>
           )}
         </div>
 

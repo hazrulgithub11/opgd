@@ -50,8 +50,8 @@ export default function DataTable<T>({
         </p>
       )}
 
-      <div className="border border-gray-200 rounded overflow-hidden bg-white">
-        <table className="w-full text-xs">
+      <div className="overflow-x-auto touch-pan-x overscroll-x-contain rounded border border-gray-200 bg-white">
+        <table className="min-w-max w-full text-xs">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               {columns.map((col) => (
@@ -91,7 +91,7 @@ export default function DataTable<T>({
                   {columns.map((col) => (
                     <td
                       key={col.key}
-                      className={cn("px-3 py-2 text-gray-700", col.className)}
+                      className={cn("whitespace-nowrap px-3 py-2 text-gray-700", col.className)}
                     >
                       {col.render
                         ? col.render(row)

@@ -22,7 +22,7 @@ const variantClass: Record<string, string> = {
 
 export default function ActionSidebar({ buttons }: ActionSidebarProps) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="grid grid-cols-2 gap-2 md:flex md:flex-col">
       {buttons.map((btn, i) => (
         <button
           key={i}

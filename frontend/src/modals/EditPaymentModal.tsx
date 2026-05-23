@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Upload } from "lucide-react";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -28,9 +29,9 @@ export default function EditPaymentModal({ receipt, onClose }: EditPaymentModalP
   const [reference, setReference] = useState(receipt.reference ?? "");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative bg-white rounded-lg shadow-xl w-[640px]">
+      <div className="relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-lg bg-white shadow-xl sm:max-w-[640px] sm:rounded-lg">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-200">
           <h2 className="text-sm font-semibold text-gray-800">
@@ -44,8 +45,8 @@ export default function EditPaymentModal({ receipt, onClose }: EditPaymentModalP
           </button>
         </div>
 
-        <div className="px-5 py-4 space-y-4">
-          <div className="flex gap-4">
+        <div className="space-y-4 overflow-y-auto px-5 py-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             {/* Left column */}
             <div className="flex-1 space-y-3">
               <div>
@@ -109,7 +110,7 @@ export default function EditPaymentModal({ receipt, onClose }: EditPaymentModalP
             </div>
 
             {/* Right column - Attachment */}
-            <div className="w-52">
+            <div className="w-full md:w-52">
               <Label className="text-xs text-gray-500 mb-1">Attachment:</Label>
               <div className="border border-dashed border-gray-300 rounded p-4 flex flex-col items-center gap-1">
                 <Upload className="w-4 h-4 text-gray-400" />
@@ -122,8 +123,8 @@ export default function EditPaymentModal({ receipt, onClose }: EditPaymentModalP
           </div>
 
           {/* Invoice table */}
-          <div>
-            <table className="w-full text-xs border border-gray-200 rounded overflow-hidden">
+          <TableScrollArea className="rounded border border-gray-200">
+            <table className="min-w-max w-full text-xs">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="px-3 py-2 text-left w-6" />
@@ -175,7 +176,7 @@ export default function EditPaymentModal({ receipt, onClose }: EditPaymentModalP
                 </tr>
               </tbody>
             </table>
-          </div>
+          </TableScrollArea>
 
           <div>
             <Label className="text-xs text-gray-500 mb-1">Reference:</Label>

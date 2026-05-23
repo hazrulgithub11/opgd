@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Printer, Copy, MessageCircle } from "lucide-react";
 import DocumentLayout from "@/components/layout/DocumentLayout";
 import ActionSidebar from "@/components/shared/ActionSidebar";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import PageHeader from "@/components/shared/PageHeader";
 import { mockInvoices } from "@/data/mockInvoices";
 import ReceiptModal from "@/modals/ReceiptModal";
@@ -39,7 +40,7 @@ export default function InvoiceView() {
 
   return (
     <div className="min-h-full bg-gray-50">
-      <div className="px-6 pt-6 pb-2">
+      <div className="px-3 pt-4 pb-2 md:px-6 md:pt-6">
         <h1 className="text-lg font-bold text-gray-800 tracking-wide uppercase mb-1">
           Sale Invoice
         </h1>
@@ -47,7 +48,7 @@ export default function InvoiceView() {
 
       <DocumentLayout
         document={
-          <div className="max-w-2xl">
+          <div className="w-full max-w-2xl">
             {/* Invoice Header */}
             <div className="flex justify-between items-start mb-6">
               <div />
@@ -62,16 +63,16 @@ export default function InvoiceView() {
             </div>
 
             {/* Bill To + Details */}
-            <div className="flex justify-between gap-8 mb-6">
+            <div className="flex flex-col gap-4 mb-6 md:flex-row md:justify-between md:gap-8">
               <div>
                 <p className="text-xs font-semibold text-gray-500 mb-1">
                   Bill To:
                 </p>
-                <p className="text-sm font-medium text-gray-800">
+                <p className="text-sm font-medium text-gray-800 break-words">
                   {invoice.billingInfo}
                 </p>
               </div>
-              <div className="text-right text-xs space-y-1">
+              <div className="text-left text-xs space-y-1 md:text-right">
                 <p className="font-semibold text-gray-500 mb-1">Details:</p>
                 <div className="grid grid-cols-2 gap-x-4 text-left">
                   <span className="text-gray-500">INV#:</span>
@@ -85,7 +86,8 @@ export default function InvoiceView() {
             </div>
 
             {/* Items Table */}
-            <table className="w-full text-xs mb-4">
+            <TableScrollArea className="mb-4">
+              <table className="min-w-max w-full text-xs">
               <thead>
                 <tr className="bg-gray-50 border-y border-gray-200">
                   <th className="px-3 py-2 text-left font-semibold text-gray-600 w-8">
@@ -123,6 +125,7 @@ export default function InvoiceView() {
                 ))}
               </tbody>
             </table>
+            </TableScrollArea>
 
             {/* Totals */}
             <div className="flex justify-end mb-6">
@@ -162,7 +165,7 @@ export default function InvoiceView() {
 
             {/* Payment slip footer */}
             <div className="border-t-2 border-dashed border-gray-300 pt-3 mt-4">
-              <div className="flex gap-8 text-xs text-gray-500">
+              <div className="flex flex-col gap-2 text-xs text-gray-500 sm:flex-row sm:gap-8">
                 <span>CASH __________</span>
                 <span>TRANSFER __________</span>
                 <span>DEBIT/CREDIT CARD __________</span>

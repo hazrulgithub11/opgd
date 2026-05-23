@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Pencil, Printer } from "lucide-react";
+import TableScrollArea from "@/components/shared/TableScrollArea";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -138,7 +139,8 @@ export default function DeliveryOrderForm() {
 
         {/* Items */}
         <div className="bg-white rounded border border-gray-200 p-5 mb-4">
-          <table className="w-full text-xs mb-4">
+          <TableScrollArea className="mb-4">
+            <table className="min-w-max w-full text-xs">
             <thead>
               <tr className="bg-gray-50 border-y border-gray-200">
                 <th className="px-3 py-2 text-left font-semibold text-gray-600">Description</th>
@@ -170,6 +172,7 @@ export default function DeliveryOrderForm() {
               )}
             </tbody>
           </table>
+          </TableScrollArea>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
