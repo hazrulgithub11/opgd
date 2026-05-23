@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const NAV_LINKS = ["SHOP", "B2B", "SUPPORT", "EXPLORE"];
 
 const TABS = [
-  "12V Battery Chargers",
-  "Boosters",
-  "EV Chargers",
+  "iPhones",
+  "Samsung",
+  "Honor",
+  "Android Phones",
   "Accessories",
-  "New Products",
 ];
 
 type Product = {
@@ -21,290 +21,195 @@ type Product = {
 };
 
 const PRODUCTS: Record<string, Product[]> = {
-  "12V Battery Chargers": [
+  "iPhones": [
     {
-      name: "CS ONE (Gen 2)",
-      badge: "New",
+      name: "iPhone 12 Pro 512GB Black",
+      badge: "In Stock",
       badgeVariant: "new",
       bullets: [
-        "Clamps work both ways — always secure",
-        "Intelligent charging for virtually all 12V batteries",
-        "Wi-Fi and app features for extra functionality",
+        "512GB — ample storage for photos, apps and more",
+        "Pro camera system with LiDAR Scanner",
+        "Unlocked, works with all carriers",
       ],
-      price: "2,495 SEK",
+      price: "RM 2,999",
     },
+  ],
+  "Samsung": [
     {
-      name: "NXT 5",
-      badge: "New",
-      badgeVariant: "new",
-      bullets: [
-        "One charger for all 12V battery types, including lithium",
-        "Built with durable cables that stay flexible in winter",
-        "Perfect for mid-range cars, motorcycles and boats",
-      ],
-      price: "1,295 SEK",
-    },
-    {
-      name: "MXS 3.8 POWER KIT",
-      badge: "New",
-      badgeVariant: "new",
-      bullets: [
-        "All-in-one kit in limited edition",
-        "CS STORAGE CASE for easy organization and transport",
-        "5000 mAh power bank",
-      ],
-      price: "999 SEK",
-    },
-    {
-      name: "MXS 5.0",
+      name: "Samsung Galaxy A35 5G",
       badge: "Bestseller",
       badgeVariant: "best",
       bullets: [
-        "Our bestseller for its practical simplicity",
-        "Adapts in all weather conditions",
-        "Perfect for mid-range cars and motorcycles",
+        "8/256GB — spacious storage for all your needs",
+        "5G-ready for next-gen connectivity",
+        "120Hz Super AMOLED display",
       ],
-      price: "1,095 SEK",
+      price: "RM 999",
     },
     {
-      name: "CT5 POWERSPORT",
-      bullets: [
-        "Special charging for lead-acid and lithium powersport batteries",
-        "Eyelet connectors included",
-        "Ideal for motorcycles, ATVs and jet skis",
-      ],
-      price: "929 SEK",
-    },
-    {
-      name: "NXT 15",
+      name: "Samsung Galaxy S24 FE",
       badge: "New",
       badgeVariant: "new",
-      bullets: ["Faster 15A charging for larger batteries — including lithium"],
-      price: "2,795 SEK",
-    },
-    {
-      name: "CS FREE",
-      badge: "Out of stock",
-      badgeVariant: "out",
-      outOfStock: true,
       bullets: [
-        "Portable and solar-powered with power bank function",
-        "Starts any 12V battery in 15 minutes",
-        "For cars, motorcycles, vans, recreational vehicles, boats and more",
+        "8/256GB with Galaxy AI features",
+        "50MP rear camera with optical zoom",
+        "IP67 water resistance",
       ],
-      price: "2,295 SEK",
-    },
-    {
-      name: "MXS 5.0 POLAR",
-      bullets: ["The reliable performance of MXS 5.0 adapted for cold climates"],
-      price: "1,195 SEK",
+      price: "RM 1,799",
     },
   ],
-  Boosters: [
+  "Honor": [
     {
-      name: "RB 3000",
+      name: "Honor 200 Lite 8/512GB",
+      bullets: [
+        "512GB storage at an accessible price",
+        "Slim design with vibrant colour options",
+        "Long-lasting battery for all-day use",
+      ],
+      price: "RM 799",
+    },
+    {
+      name: "Honor 200 Pro 512GB",
       badge: "New",
       badgeVariant: "new",
       bullets: [
-        "Up to 30 starts on one charge",
-        "Use as a portable power bank and LED flashlight",
-        "Premium design and market-leading torque",
+        "512GB flagship-tier storage",
+        "50MP triple camera with Portrait Engine",
+        "Up to 100W fast charging",
       ],
-      price: "3,395 SEK",
+      price: "RM 1,299",
     },
     {
-      name: "RB 4000",
-      badge: "New",
-      badgeVariant: "new",
+      name: "Honor 200 Smart 5G",
       bullets: [
-        "Up to 45 starts on one charge",
-        "Practical portable power bank with USB outputs plus flashlight",
-        "Premium design and market-leading torque",
+        "8/256GB — smooth 5G performance",
+        "6.8\" HD+ display with eye comfort",
+        "5230mAh battery for extended usage",
       ],
-      price: "4,495 SEK",
+      price: "RM 599",
     },
     {
-      name: "CS FREE",
-      badge: "Out of stock",
-      badgeVariant: "out",
-      outOfStock: true,
+      name: "Honor 90 Lite 5G",
       bullets: [
-        "Portable and solar-powered with power bank function",
-        "Starts any 12V battery in 15 minutes",
-        "For cars, motorcycles, vans, recreational vehicles, boats and more",
+        "8/256GB with 5G connectivity",
+        "100MP triple camera system",
+        "35W fast charging support",
       ],
-      price: "2,295 SEK",
-    },
-  ],
-  "EV Chargers": [
-    {
-      name: "NJORD® GO",
-      bullets: [
-        "Up to 11 kW fast, flexible charging with a Type 2 connector",
-        "Portable and ready to use straight out of the box",
-        "A personal and convenient EV charging station for home, travel or workshop",
-      ],
-      price: "9,495 SEK",
+      price: "RM 699",
     },
     {
-      name: "NANOGRID™ AIR",
-      bullets: [
-        "Dynamic load balancing for your portable EV charger NJORD® GO",
-        "Wi-Fi communication",
-        "Easy installation without needing an electrician",
-      ],
-      price: "1,095 SEK",
-    },
-  ],
-  Accessories: [
-    {
-      name: "ACCESSORIES KIT",
-      badge: "New",
-      badgeVariant: "new",
-      bullets: ["Exclusive kit to enhance your charging experience"],
-      price: "699 SEK",
-    },
-    {
-      name: "CS STORAGE CASE",
-      bullets: [
-        "Practical storage: handy pockets and dividers",
-        "Safe and durable: tough 600D water-resistant nylon",
-        "Portable: lightweight bag with carry handle",
-      ],
-      price: "299 SEK",
-    },
-    {
-      name: "CS CONNECT U TERMINAL",
-      bullets: [
-        "A permanent connection for hard-to-reach batteries",
-        "Secure connection to batteries that are difficult to access",
-        "High quality and durability",
-      ],
-      price: "179 SEK",
-    },
-    {
-      name: "CS CONNECT ADAPTER CABLE",
+      name: "Honor Play 10 4/128GB",
       badge: "Bestseller",
       badgeVariant: "best",
       bullets: [
-        "Designed for use with your CS ONE charger",
-        "Enables compatibility with all CTEK CONNECT & INDICATOR accessories",
-        "High quality and durability",
+        "4/128GB — reliable everyday smartphone",
+        "Large display for media and gaming",
+        "Durable build with long battery life",
       ],
-      price: "119 SEK",
+      price: "RM 599",
     },
     {
-      name: "CONNECT 2.5M EXTENSION CABLE",
+      name: "Honor X5B Plus 4/128GB",
       bullets: [
-        "Allows you to place your CTEK charger further away",
-        "Safe",
-        "Durable",
+        "4/128GB — entry-level powerhouse",
+        "Available in Black and Blue",
+        "Ideal for students and everyday users",
       ],
-      price: "199 SEK",
-    },
-    {
-      name: "CS ONE BUMPER",
-      bullets: [
-        "Provides strong protection for your CTEK CS ONE",
-        "Easy to install",
-        "Tough and durable",
-      ],
-      price: "249 SEK",
+      price: "RM 449",
     },
   ],
-  "New Products": [
+  "Android Phones": [
     {
-      name: "CS ONE CONNECT & PROTECT KIT",
+      name: "Google Pixel 9 256GB",
       badge: "New",
       badgeVariant: "new",
       bullets: [
-        "Adapter cable and our easiest to install battery connector",
-        "Bumper and storage case for optimal protection",
+        "256GB with Google AI-powered camera",
+        "Pure Android with 7 years of updates",
+        "Titan M2 security chip",
       ],
-      price: "645 SEK",
+      price: "RM 1,799",
     },
     {
-      name: "CS ONE ULTIMATE KIT",
+      name: "Infinix Note 50X 5G",
       badge: "New",
       badgeVariant: "new",
       bullets: [
-        "Adapter cable and our easiest to install battery connector",
-        "Bumper and storage case for optimal protection",
-        "Wall mount for keeping the charger away from the floor and car",
+        "8/256GB with 5G connectivity",
+        "5G-ready at a budget-friendly price",
+        "Large 5000mAh battery",
       ],
-      price: "795 SEK",
+      price: "RM 699",
     },
     {
-      name: "CS ONE ESSENTIALS KIT",
-      badge: "New",
-      badgeVariant: "new",
+      name: "Vivo Y18S 4/128GB",
       bullets: [
-        "Adapter cable for connecting accessories to your CS ONE",
-        "Includes our easiest to install battery connector",
+        "4/128GB — compact and capable",
+        "44W FlashCharge technology",
+        "Slim design with premium finish",
       ],
-      price: "265 SEK",
+      price: "RM 499",
     },
     {
-      name: "ACCESSORIES KIT",
-      badge: "New",
-      badgeVariant: "new",
-      bullets: ["Exclusive kit to enhance your charging experience"],
-      price: "699 SEK",
-    },
-    {
-      name: "NXT 5",
-      badge: "New",
-      badgeVariant: "new",
+      name: "OPPO A60 8/256GB",
       bullets: [
-        "One charger for all 12V battery types, including lithium",
-        "Built with durable cables that stay flexible in winter",
-        "Perfect for mid-range cars, motorcycles and boats",
+        "8/256GB — generous storage",
+        "5000mAh with SUPERVOOC charging",
+        "Dynamic RAM Expansion technology",
       ],
-      price: "1,295 SEK",
+      price: "RM 649",
     },
     {
-      name: "NXT 15",
-      badge: "New",
-      badgeVariant: "new",
-      bullets: ["Faster 15A charging for larger batteries — including lithium"],
-      price: "2,795 SEK",
-    },
-    {
-      name: "CS ONE (Gen 2)",
-      badge: "New",
-      badgeVariant: "new",
+      name: "Realme C67 6/128GB",
+      badge: "Bestseller",
+      badgeVariant: "best",
       bullets: [
-        "Clamps work both ways — always secure",
-        "Intelligent charging for virtually all 12V batteries",
-        "Wi-Fi and app features for extra functionality",
+        "6/128GB — value for money",
+        "108MP AI camera",
+        "5000mAh battery for all-day use",
       ],
-      price: "2,495 SEK",
+      price: "RM 549",
+    },
+  ],
+  "Accessories": [
+    {
+      name: "Headphone P47",
+      bullets: [
+        "Wireless over-ear headphone",
+        "Deep bass with clear treble",
+        "Compatible with all smartphones",
+      ],
+      price: "—",
+    },
+    {
+      name: "Mini Handheld Portable Fan",
+      bullets: [
+        "Compact portable design",
+        "USB rechargeable battery",
+        "Perfect travel companion",
+      ],
+      price: "RM 19",
     },
   ],
 };
 
 const PRODUCT_COLORS: Record<string, string> = {
-  "CS ONE (Gen 2)": "#2a2a2a",
-  "NXT 5": "#1e3a5f",
-  "MXS 3.8 POWER KIT": "#1a1a2e",
-  "MXS 5.0": "#222222",
-  "CT5 POWERSPORT": "#1c2b3a",
-  "NXT 15": "#16213e",
-  "CS FREE": "#0f3460",
-  "MXS 5.0 POLAR": "#1a2a3a",
-  "RB 3000": "#2d1b00",
-  "RB 4000": "#3d2700",
-  "NJORD® GO": "#0d2137",
-  "NANOGRID™ AIR": "#1a2c3f",
-  "ACCESSORIES KIT": "#1f1f1f",
-  "CS STORAGE CASE": "#2c2c2c",
-  "CS CONNECT U TERMINAL": "#1e1e1e",
-  "CS CONNECT ADAPTER CABLE": "#252525",
-  "CONNECT 2.5M EXTENSION CABLE": "#2a2a2a",
-  "CS ONE BUMPER": "#333333",
-  "CS ONE CONNECT & PROTECT KIT": "#1a1a1a",
-  "CS ONE ULTIMATE KIT": "#222222",
-  "CS ONE ESSENTIALS KIT": "#2c2c2c",
+  "iPhone 12 Pro 512GB Black": "#1c1c1e",
+  "Samsung Galaxy A35 5G": "#1a237e",
+  "Samsung Galaxy S24 FE": "#0d1b4b",
+  "Honor 200 Lite 8/512GB": "#006064",
+  "Honor 200 Pro 512GB": "#1a237e",
+  "Honor 200 Smart 5G": "#004d40",
+  "Honor 90 Lite 5G": "#1b5e20",
+  "Honor Play 10 4/128GB": "#212121",
+  "Honor X5B Plus 4/128GB": "#263238",
+  "Google Pixel 9 256GB": "#1b5e20",
+  "Infinix Note 50X 5G": "#1a237e",
+  "Vivo Y18S 4/128GB": "#4a148c",
+  "OPPO A60 8/256GB": "#b71c1c",
+  "Realme C67 6/128GB": "#e65100",
+  "Headphone P47": "#1c1c1c",
+  "Mini Handheld Portable Fan": "#2a2a2a",
 };
 
 function badgeStyle(variant?: string) {
@@ -333,9 +238,9 @@ function ProductCard({ product }: { product: Product }) {
           className="w-28 h-28 rounded-sm opacity-90 flex items-center justify-center"
           style={{ background: `linear-gradient(135deg, ${bg} 0%, #555 100%)` }}
         >
-          <span className="text-white text-[8px] font-bold tracking-widest opacity-70 text-center px-1 leading-tight">
-            CTEK
-          </span>
+                  <span className="text-white text-[8px] font-bold tracking-widest opacity-70 text-center px-1 leading-tight">
+                    OG
+                  </span>
         </div>
       </div>
 
@@ -373,38 +278,38 @@ function ProductCard({ product }: { product: Product }) {
 
 const SERIES = [
   {
-    tag: "CS Series",
-    title: "CS Series",
-    desc: "The CS Series is CTEK's most advanced battery charger, with adaptive charging and premium design that delivers optimal battery care — at home and on the road.",
-    cta: "Shop CS Series",
+    tag: "iPhone",
+    title: "iPhone",
+    desc: "Apple's most powerful lineup — packed with the A-series chip, ProMotion display, and a camera system that redefines what's possible with a phone.",
+    cta: "Shop iPhones",
     features: [
-      { label: "Smart", sub: "Adaptive charging" },
-      { label: "Innovative", sub: "Portable power source" },
-      { label: "Connected", sub: "App features" },
+      { label: "Powerful", sub: "A-series chip" },
+      { label: "Pro Camera", sub: "LiDAR & Night Mode" },
+      { label: "Secure", sub: "Face ID & iOS" },
     ],
     bg: "#0f0f0f",
   },
   {
-    tag: "NXT Series",
-    title: "NXT Series",
-    desc: "The NXT Series is CTEK's latest innovation, built for drivers and enthusiasts who demand high performance, reliability and ease of use.",
-    cta: "Shop NXT Series",
+    tag: "Samsung Galaxy",
+    title: "Samsung Galaxy",
+    desc: "From the flagship S-series to the accessible A-series, Samsung Galaxy phones deliver cutting-edge performance, stunning displays and long-lasting battery life.",
+    cta: "Shop Samsung",
     features: [
-      { label: "Durable", sub: "Daily use" },
-      { label: "Versatile", sub: "All 12V batteries" },
-      { label: "Effortless", sub: "Connect & forget" },
+      { label: "Vivid", sub: "Super AMOLED display" },
+      { label: "Versatile", sub: "5G-ready" },
+      { label: "AI-powered", sub: "Galaxy AI features" },
     ],
     bg: "#111827",
   },
   {
-    tag: "RB Boosters",
-    title: "RB Boosters",
-    desc: "The RB Booster series keeps drivers moving with instant jump-start power when the battery fails. Compact, reliable and easy to use.",
-    cta: "Shop RB Boosters",
+    tag: "Honor",
+    title: "Honor",
+    desc: "Honor phones bring flagship-tier features to every price point — fast charging, multi-lens cameras and 5G connectivity without compromise.",
+    cta: "Shop Honor",
     features: [
-      { label: "Instant", sub: "Jump-start power" },
-      { label: "Multiple", sub: "Starts per charge" },
-      { label: "Boosts", sub: "& charges devices" },
+      { label: "Fast Charge", sub: "Up to 100W" },
+      { label: "5G Ready", sub: "All models" },
+      { label: "Value", sub: "Flagship features" },
     ],
     bg: "#1a0a00",
   },
@@ -413,23 +318,23 @@ const SERIES = [
 const TESTIMONIALS = [
   {
     quote:
-      "With lots of different cars going out, it's always very important to me that they're good to go on the button, that they're ready. And of course the cars all live on CTEK chargers.",
-    author: "Shmee150 (Tim Burton)",
+      "Got my Samsung Galaxy S24 FE here and it's been amazing. Great price, fast service, and the phone is exactly as described.",
+    author: "Amirul H., Kuala Lumpur",
   },
   {
     quote:
-      "We've been using the MXS 5.0 for a long time now, but we can't wait to try the NXT 5, which can do both lead acid and lithium.",
-    author: "Chris Zöllner, ChromeCars",
+      "Option Gadget is my go-to for phones. Genuine products, competitive pricing, and they really know their stuff.",
+    author: "Siti N., Petaling Jaya",
   },
   {
     quote:
-      "I love the simplicity of it. Everything about what CTEK represents to me just makes my life a lot easier, and better.",
-    author: "Shawn Davis, Autotopia LA",
+      "Bought an Honor 200 Pro for my daughter and she loves it. The camera is incredible at this price point.",
+    author: "Razif M., Shah Alam",
   },
   {
     quote:
-      "Our cars are meant to be driven, and anything that gets in the way of that, I need to solve. So CTEK kind of takes care of that.",
-    author: "Chris Ashton, Ruffian Cars",
+      "Smooth transaction, phone arrived quickly and in perfect condition. Will definitely be back for my next upgrade.",
+    author: "Hafizuddin R., Subang Jaya",
   },
 ];
 
@@ -441,14 +346,14 @@ export default function HomePage() {
     <div className="min-h-screen bg-white font-sans text-black">
       {/* Announcement bar */}
       <div className="bg-black text-white text-xs text-center py-2 tracking-wide">
-        Free shipping on orders over 595 SEK
+        Free shipping on orders over RM 500
       </div>
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-[1280px] mx-auto px-6 h-14 flex items-center justify-between">
           <Link to="/" className="text-2xl font-black italic tracking-tighter select-none">
-            CTEK
+            Option Gadget
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -525,15 +430,15 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4 gap-3">
-          <h1 className="text-5xl font-black tracking-tight leading-none">Campervan Deal!</h1>
+          <h1 className="text-5xl font-black tracking-tight leading-none">New Arrivals!</h1>
           <p className="text-sm text-gray-300 max-w-md leading-relaxed">
-            The perfect combination of premium charging and portable power for the road:
+            The latest smartphones at unbeatable prices:
           </p>
-          <p className="text-sm font-semibold text-white">NXT 15 battery charger + RB 3000 jump starter</p>
-          <p className="text-2xl font-black mt-1">4,995 SEK</p>
-          <p className="text-xs text-amber-400 font-semibold -mt-1">Save 1,195 SEK</p>
+          <p className="text-sm font-semibold text-white">Samsung Galaxy S24 FE · Honor 200 Pro · Google Pixel 9</p>
+          <p className="text-2xl font-black mt-1">From RM 999</p>
+          <p className="text-xs text-amber-400 font-semibold -mt-1">Limited stock available</p>
           <button className="mt-2 bg-amber-400 hover:bg-amber-300 transition-colors text-black font-bold text-sm px-8 py-3 tracking-wide">
-            Get it now!
+            Shop Now!
           </button>
         </div>
 
@@ -554,7 +459,7 @@ export default function HomePage() {
       <section className="py-12 bg-white">
         <div className="max-w-[1280px] mx-auto px-6">
           <p className="text-xs text-gray-500 mb-1 tracking-wide uppercase">Our recommendations</p>
-          <h2 className="text-3xl font-black tracking-tight mb-6">Popular CTEK Products</h2>
+          <h2 className="text-3xl font-black tracking-tight mb-6">Popular Phones & Gadgets</h2>
 
           <div className="flex gap-2 flex-wrap mb-8 border-b border-gray-100 pb-0">
             {TABS.map((tab) => (
@@ -625,7 +530,7 @@ export default function HomePage() {
                   }}
                 >
                   <span className="text-white text-2xl font-black italic tracking-tighter opacity-50">
-                    CTEK
+                    OG
                   </span>
                 </div>
               </div>
@@ -638,15 +543,15 @@ export default function HomePage() {
       <section className="bg-white py-20">
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1">
-            <p className="text-xs text-gray-400 tracking-widest uppercase mb-3">CTEK</p>
+            <p className="text-xs text-gray-400 tracking-widest uppercase mb-3">Option Gadget</p>
             <h2 className="text-5xl font-black leading-tight mb-6">
-              Power every
+              Find your
               <br />
-              moment
+              perfect phone
             </h2>
             <p className="text-sm text-gray-600 max-w-sm leading-relaxed mb-8">
-              Every journey is a story waiting to be written. Hit the road with confidence. With
-              CTEK chargers and accessories, you are always ready for every adventure.
+              Every smartphone tells a story. Find the device that fits your life — from flagship
+              powerhouses to budget-friendly gems, Option Gadget has you covered.
             </p>
             <button className="bg-black text-white text-xs font-semibold px-8 py-3 hover:bg-gray-800 transition-colors tracking-wide">
               Explore
@@ -667,19 +572,19 @@ export default function HomePage() {
       {/* Vehicle categories */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-[1280px] mx-auto px-6">
-          <p className="text-sm text-gray-500 mb-1">Which vehicle do you need help charging?</p>
+          <p className="text-sm text-gray-500 mb-1">What are you looking for?</p>
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-black">Choose vehicle type</h2>
+            <h2 className="text-2xl font-black">Browse by brand</h2>
             <a href="#" className="text-xs font-semibold text-black underline underline-offset-4 hover:no-underline">
               See all categories
             </a>
           </div>
           <div className="flex gap-4 overflow-x-auto pb-4">
             {[
-              { label: "Car", desc: "Extend your car battery life by up to three times.", bg: "#1e293b" },
-              { label: "Motorcycle", desc: "Battery chargers for motorcycles are essential, especially for bikes used seasonally.", bg: "#292524" },
-              { label: "Boat", desc: "Enjoy every moment on the water, knowing your marine batteries are charged and ready.", bg: "#0c4a6e" },
-              { label: "Electric vehicle", desc: "Smart charging for all EV models — installed and supported by certified experts.", bg: "#14532d" },
+              { label: "Apple", desc: "Explore our range of iPhones — genuine, unlocked and ready to go.", bg: "#1e293b" },
+              { label: "Samsung", desc: "From budget A-series to flagship S-series, find your Galaxy here.", bg: "#292524" },
+              { label: "Honor", desc: "Feature-packed phones at every price point — fast charging and 5G included.", bg: "#0c4a6e" },
+              { label: "Budget Phones", desc: "Great performance without breaking the bank — Vivo, OPPO, Realme and more.", bg: "#14532d" },
             ].map((v) => (
               <div
                 key={v.label}
@@ -703,7 +608,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-black mb-2">Trusted by leading brands</h2>
           <p className="text-sm text-gray-500 mb-8">Join thousands of satisfied customers worldwide</p>
           <div className="flex gap-12 justify-center items-center flex-wrap opacity-40">
-            {["BMW", "Volvo", "Audi", "Porsche", "Mercedes", "Toyota"].map((brand) => (
+            {["Apple", "Samsung", "Honor", "Vivo", "OPPO", "Realme"].map((brand) => (
               <span key={brand} className="text-lg font-black tracking-widest">
                 {brand}
               </span>
@@ -719,7 +624,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-bold tracking-widest uppercase mb-4 text-gray-400">ABOUT US</p>
               <ul className="flex flex-col gap-2">
-                {["About Us", "Careers", "Investors", "ISO Certificate"].map((item) => (
+                {["About Us", "Why Option Gadget", "Trade-In Programme", "Warranty Policy"].map((item) => (
                   <li key={item}>
                     <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
                       {item}
@@ -731,7 +636,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-bold tracking-widest uppercase mb-4 text-gray-400">SUPPORT</p>
               <ul className="flex flex-col gap-2">
-                {["Support", "12V & 24V Guides", "EV Charging Guides", "Support at ctek.com"].map((item) => (
+                {["Support", "Phone Buying Guide", "After-Sales Service", "Contact Us"].map((item) => (
                   <li key={item}>
                     <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
                       {item}
@@ -772,9 +677,9 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <span className="text-2xl font-black italic tracking-tighter">CTEK</span>
+            <span className="text-2xl font-black italic tracking-tighter">Option Gadget</span>
             <p className="text-xs text-gray-600">
-              © 2026 All rights reserved © CTEK Sweden AB 2026
+              © 2026 All rights reserved © Option Gadget
             </p>
           </div>
         </div>

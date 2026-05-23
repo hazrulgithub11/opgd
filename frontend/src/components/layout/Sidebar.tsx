@@ -66,14 +66,9 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-5 border-b border-white/10">
-        <div
-          className="w-7 h-7 rounded flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-          style={{ backgroundColor: "#06b6d4" }}
-        >
-          N
-        </div>
+        
         <span className="text-white font-bold text-sm tracking-wide leading-tight">
-          NIAGA<span style={{ color: "#06b6d4" }}>PLUS</span>
+          OPTION<span style={{ color: "#ffa500" }}>GADGET</span>
         </span>
       </div>
 
